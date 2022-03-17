@@ -1,0 +1,69 @@
+{% extends "hal_admin/dashboard/base.html" %}
+
+<!--Header-->
+{% block header %}
+    <h1 class="mt-4">{{heading}}</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">{{user.pegawai.nama_pegawai}}</li>
+        </ol>
+{% endblock header %}
+
+<!--Konten-->
+{% block content %}
+<div class="row">
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-primary text-white mb-4">
+            <div class="card-body"><i class="fas fa-user fa-fw"></i> Data Pegawai </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="{% url 'bs_admin:data_pegawai'%}">View Details</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-primary text-white mb-4">
+            <div class="card-body"><i class="fas fa-user fa-fw"></i> Data Pelanggan </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="{% url 'bs_admin:data_pelanggan'%}">View Details</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-primary text-white mb-4">
+            <div class="card-body"><i class="fas fa-tags"></i> Data Barang dan Jasa </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="{% url 'bs_admin:barang_jasa'%}">View Details</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-primary text-white mb-4">
+            <div class="card-body"><i class="fas fa-desktop"></i> Data Servis </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="{% url 'bs_admin:data_servis'%}">View Details</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-primary text-white mb-4">
+            <div class="card-body"><i class="fas fa-money-bill"></i> Data Pembayaran </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="{% url 'bs_admin:data_pembayaran'%}">View Details</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-primary text-white mb-4">
+            <div class="card-body"><i class="fa fa-calendar"></i> Log Data Servis </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="{% url 'bs_admin:log_data'%}">View Details</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

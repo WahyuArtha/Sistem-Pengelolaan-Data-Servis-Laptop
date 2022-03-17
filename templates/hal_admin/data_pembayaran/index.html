@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="icon" href="{% static "img/LOGO BSI.png" %}">
+        <title>{{judul}}</title>
+        {% include "hal_admin/snippets/styles.html" %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed">
+        <!--Navbar-->
+        {% include "hal_admin/snippets/navbar.html" %}
+        <!--Konten-->
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">{{heading}}</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="{% url 'bs_admin:index'%}">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Data Pembayaran</li>
+                        </ol>
+                        <div class="panel-body"> 
+                            <a class="btn btn-primary mb-2" href="{% url 'bs_admin:tambah_pembayaran'%}" role="button">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                            Tambah Data Pembayaran
+                            </a>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-money-bill"></i>
+                                Daftar Data Pembayaran
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>No Transaksi</th>
+                                            <th>Nama Laptop</th>
+                                            <th>Pemilik</th>
+                                            <th>Status Pembayaran</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for data_pembayaran in byr %}
+                                            <tr>
+                                                <td>{{ data_pembayaran.no_transaksi }}</td>
+                                                <td>{{ data_pembayaran.id_servis }}</td>
+                                                <td>{{ data_pembayaran.id_plg }}</td>
+                                                <td>{{ data_pembayaran.status_bayar }}</td>
+                                                <td>
+                                                    <a class="btn btn-outline-success" href="{% url 'bs_admin:detail_bayar' data_pembayaran.id %}" role:"button">
+                                                        Bayar
+                                                    </a>
+                                                    <a class="btn btn-outline-primary" href="#" role:"button">
+                                                        <i class="fas fa-print"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; 2021 PT. Bali Soket Informindo</div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        {% include "hal_admin/snippets/scripts.html" %}
+    </body>
+</html>

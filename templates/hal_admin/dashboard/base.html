@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="icon" href="{% static "img/LOGO BSI.png" %}">
+        <title>{{judul}}</title>
+        {% include "hal_admin/snippets/styles.html" %}
+    </head>
+    <body class="sb-nav-fixed">
+        <!--Navbar-->
+        {% include "hal_admin/snippets/navbar.html" %}
+            <!--Konten-->
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        
+                        {% block header %}
+                          
+                        {% endblock header %}
+                        
+                        {% block content %}
+                          
+                        {% endblock content %}
+                    
+                    </div>
+                </main>
+                <!--Footer-->
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; 2021 PT. Bali Soket Informindo</div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        {% include "hal_admin/snippets/scripts.html" %}
+    </body>
+</html>

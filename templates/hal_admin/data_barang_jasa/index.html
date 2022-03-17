@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="icon" href="{% static "img/LOGO BSI.png" %}">
+        <title>{{judul}}</title>
+        {% include "hal_admin/snippets/styles.html" %}
+    </head>
+    <body class="sb-nav-fixed">
+        <!--Navbar-->
+        {% include "hal_admin/snippets/navbar.html" %}
+        <!--Konten-->>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">{{heading}}</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="{% url 'bs_admin:index'%}">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Data Barang dan Jasa</li>
+                        </ol>
+                        <div class="panel-body">
+                            <a class="btn btn-primary mb-2" href="{% url 'bs_admin:tambah_barang'%}" role="button">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                            Tambah Data Barang
+                            </a>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-tag"></i>
+                                Daftar Data Barang
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama Barang</th>
+                                            <th>Serial Nomor</th>
+                                            <th>Jenis Barang</th>
+                                            <th>Harga Barang</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for data_barang in brg %}
+                                            <tr>
+                                                <td>{{ data_barang.nama_barang }}</td>
+                                                <td>{{ data_barang.serialnomor }}</td>
+                                                <td>{{ data_barang.jenis_barang }}</td>
+                                                <td>{{ data_barang.harga_barang }}</td>
+                                                <td>
+                                                <a class="btn btn-outline-success" href="{% url 'bs_admin:edit_barang' data_barang.id %}" role:"button">
+                                                    <i class="far fa-edit"></i>
+                                                </a>
+                                                 <a class="btn btn-outline-danger" href="{% url 'bs_admin:hapus_barang' data_barang.id %}" role:"button">
+                                                    <i class="far fa-trash-alt"></i>
+                                                </a>
+                                            </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <a class="btn btn-primary mb-2" href="{% url 'bs_admin:tambah_jasa'%}" role="button">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                            Tambah Data Jasa
+                            </a>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-tag"></i>
+                                Daftar Data Jasa
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple2">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama Jasa</th>
+                                            <th>Harga Jasa</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for data_jasa in js %}
+                                            <tr>
+                                                <td>{{ data_jasa.nama_jasa }}</td>
+                                                <td>{{ data_jasa.harga_jasa }}</td>
+                                                <td>
+                                                <a class="btn btn-outline-success" href="{% url 'bs_admin:edit_jasa' data_jasa.id %}" role:"button">
+                                                    <i class="far fa-edit"></i>
+                                                </a>
+                                                 <a class="btn btn-outline-danger" href="{% url 'bs_admin:hapus_jasa' data_jasa.id %}" role:"button">
+                                                    <i class="far fa-trash-alt"></i>
+                                                </a>
+                                            </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; 2021 PT. Bali Soket Informindo</div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        {% include "hal_admin/snippets/scripts.html" %}
+    </body>
+</html>

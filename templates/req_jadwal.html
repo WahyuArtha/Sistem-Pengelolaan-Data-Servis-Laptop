@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="icon" href="{% static "img/LOGO BSI.png" %}">
+        <title>{{judul}}</title>
+        {% include "snippets/styles.html" %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed">
+        {% include "pelanggan/penempel/navbar.html" %}
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">{{heading}}</h1>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; 2021 PT. Bali Soket Informindo</div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        {% include "snippets/scripts.html" %}
+    </body>
+</html>

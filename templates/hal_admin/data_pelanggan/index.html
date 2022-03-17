@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="icon" href="{% static "img/LOGO BSI.png" %}">
+        <title>{{judul}}</title>
+        {% include "hal_admin/snippets/styles.html" %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed">
+        {% include "hal_admin/snippets/navbar.html" %}
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">{{heading}}</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="{% url 'bs_admin:index'%}">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Data Pelanggan</li>
+                        </ol>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-user fa-fw"></i>
+                                Daftar Data Pelanggan
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama</th>
+                                            <th>Alamat</th>
+                                            <th>Kontak</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for data_pelanggan in plg %}
+                                            <tr>
+                                                <td>{{ data_pelanggan.nama_plg }}</td>
+                                                <td>{{ data_pelanggan.alamat }}</td>
+                                                <td>{{ data_pelanggan.no_tlp }}</td>
+                                                <td>
+                                                    <a class="btn btn-outline-danger" href="#" role:"button">
+                                                    <i class="far fa-trash-alt"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; 2021 PT. Bali Soket Informindo</div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        {% include "hal_admin/snippets/scripts.html" %}
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="{% static "vendor/js/datatables-simple-demo.js" %}"></script>
+    </body>
+</html>
