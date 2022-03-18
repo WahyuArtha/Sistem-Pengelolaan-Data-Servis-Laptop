@@ -32,11 +32,30 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="exampleFormControlInput1" class="form-label">No. Servis:</label>
-                                        <input type="text" readonly name="no_transaksi" value="{{ bayar.id_servis.no_servis }}" class="form-control" id="exampleFormControlInput1" placeholder="">
+                                        <input type="text" readonly name="no_servis" value="{{ bayar.id_servis.no_servis }}" class="form-control" id="exampleFormControlInput1" placeholder="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Nama Laptop:</label>
+                                        <input type="text" readonly name="nama_barang_servis" value="{{ bayar.id_servis.nama_barang_servis }}" class="form-control" id="exampleFormControlInput1" placeholder="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Nama Barang:</label>
+                                        <input type="text" readonly name="nama_barang" value="{{ bayar.id_barang.nama_barang }}" class="form-control" id="exampleFormControlInput1" placeholder="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Jasa:</label>
+                                        <input type="text" readonly name="nama_jasa" value="{{ bayar.id_jasa.nama_jasa }}" class="form-control" id="exampleFormControlInput1" placeholder="">
                                     </div>
                                     <div class="mb-3">
                                         <label for="exampleFormControlInput1" class="form-label">Nama Pemilik:</label>
-                                        <input type="text" readonly name="no_transaksi" value="{{ bayar.id_plg.nama_plg }}" class="form-control" id="exampleFormControlInput1" placeholder="">
+                                        <input type="text" readonly name="nama_plg" value="{{ bayar.id_plg.nama_plg }}" class="form-control" id="exampleFormControlInput1" placeholder="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Status Bayar:</label>
+                                        <select class="form-select" aria-label="Default select example" name="status_bayar">
+                                            <option value="lunas">Lunas</option>
+                                            <option value="belum_lunas">Belum Lunas</option>
+                                        </select>
                                     </div>
                                     <div class="mt-4">
                                         <input class="btn btn-primary" type="submit" value="Simpan">
